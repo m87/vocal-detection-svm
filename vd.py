@@ -4,6 +4,7 @@
 import wavio
 import sys
 from glob import glob
+import ogg.vorbis
 
 
 
@@ -15,15 +16,15 @@ class Dataset(object):
         self.directory = directory
 
     def validationTracks(self):
-        for filename in glob(self.directory+"/valid" + "/*.ogg"):
+        for filename in glob(self.directory+"/valid" + "/*.wav"):
             yield filename
 
     def trainTracks(self):
-        for filename in glob(self.directory+"/train" + "/*.ogg"):
+        for filename in glob(self.directory+"/train" + "/*.wav"):
             yield filename
 
     def testTracks(self):
-        for filename in glob(self.directory+"/test" + "/*.ogg"):
+        for filename in glob(self.directory+"/test" + "/*.wav"):
             yield filename
     
     def adnotations(self):
