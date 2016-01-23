@@ -67,7 +67,7 @@ def main(path):
     for a in ds.trainTracks():
         print(a)
     for a in ds.validationTracks():
-        for w in ds.windows(a, 16000,1410,705):
+        for w in ds.windows(a, 16000,512,256):
             print mfcc(w,16000, winlen=0.032)
 
 
