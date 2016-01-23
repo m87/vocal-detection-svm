@@ -1,15 +1,25 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
+import wavio
+import sys
 
 
-class Data(object):
+
+class Dataset(object):
 
     """Docstring for Data. """
 
     def __init__(self):
         """TODO: to be defined1. """
-        
+        pass
+
+    def validationTracks():
+        pass
+    def trainTracks():
+        pass
+    def testTracks():
+        pass
 
 
 class VocalDetector(object):
@@ -18,13 +28,13 @@ class VocalDetector(object):
 
     def __init__(self):
         """TODO: to be defined1. """
-        
+        pass
 
 
-def main:
+def main(path):
     pass
 
 
 
 if __name__ == '__main__':
-    main()
+    main(sys.argv[1])
