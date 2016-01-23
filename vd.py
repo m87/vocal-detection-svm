@@ -5,6 +5,7 @@ import wavio
 import sys
 from glob import glob
 from scipy.signal import decimate
+from features import mfcc
 
 
 
@@ -53,8 +54,8 @@ class VocalDetector(object):
     """Docstring for VocalDetector. """
 
     def __init__(self):
-        """TODO: to be defined1. """
-        pass
+        self.classifier = svm.SVC(cache_size=2000)
+
 
 
 def main(path):
@@ -66,8 +67,8 @@ def main(path):
     for a in ds.trainTracks():
         print(a)
     for a in ds.validationTracks():
-        for w in ds.windows(a, 44100,1410,705):
-            print w
+        for w in ds.windows(a, 16000,1410,705):
+            print mfcc(w,16000, winlen=0.032)
 
 
 
