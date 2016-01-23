@@ -4,7 +4,6 @@
 import wavio
 import sys
 from glob import glob
-import ogg.vorbis
 
 
 
@@ -30,6 +29,19 @@ class Dataset(object):
     def adnotations(self):
         for filename in glob(self.directory+"/jamendo_lab" + "/*.lab"):
             yield filename
+
+    def windows(self,track, rate, width, overlap):
+        wav = wavio.read(track)
+        signal = decimate(wav.data[:, 0], wav.rate / rate)
+
+
+        for start in xrange(0, signal.shape[0] - width + overlap, width):
+            if start > overlap:
+                start -= overlap
+
+            yield signal[start:(start+width)]
+
+
 
 
 
