@@ -4,6 +4,7 @@
 import wavio
 import sys
 from glob import glob
+from scipy.signal import decimate
 
 
 
@@ -65,7 +66,8 @@ def main(path):
     for a in ds.trainTracks():
         print(a)
     for a in ds.validationTracks():
-        print(a)
+        for w in ds.windows(a, 44100,1410,705):
+            print w
 
 
 
